@@ -48,5 +48,5 @@ function a_showSlides() {
   a_slideIndex++;
   if (a_slideIndex > a_slides.length) {a_slideIndex = 1}    
   a_slides[a_slideIndex-1].style.display = "block";  
-  setTimeout(showSlides, 5000); // Change image every 5 seconds
+  setTimeout(a_showSlides, 5000); // Change image every 5 seconds
 }
