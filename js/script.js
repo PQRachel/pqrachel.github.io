@@ -4,6 +4,23 @@ if (document.getElementById('my-work-link')) {
   })
 }
 
+/* Image Carousel but Automagical */
+let aslideIndex = 0;
+showaSlides();
+
+function ashowSlides() {
+  let i;
+  let aslides = 15;
+  for (i = 0; i < aslides.length; i++) {
+    aslides[i].style.display = "none";  
+  }
+  aslideIndex++;
+  if (aslideIndex > aslides.length) {aslideIndex = 1}    
+  aslides[aslideIndex-1].style.display = "block";  
+  setTimeout(ashowSlides, 3000); // Change image every 3 seconds
+}
+
+
 /* Image Carousel */
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -32,21 +49,4 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
-}
-
-
-/* Image Carousel but Automagical */
-let aslideIndex = 0;
-showaSlides();
-
-function ashowSlides() {
-  let i;
-  let aslides = 15;
-  for (i = 0; i < aslides.length; i++) {
-    aslides[i].style.display = "none";  
-  }
-  aslideIndex++;
-  if (aslideIndex > aslides.length) {aslideIndex = 1}    
-  aslides[aslideIndex-1].style.display = "block";  
-  setTimeout(ashowSlides, 3000); // Change image every 3 seconds
 }
