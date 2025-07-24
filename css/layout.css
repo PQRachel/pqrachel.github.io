@@ -21,7 +21,7 @@ body {
 /* Main Page Layout */
 
 #main-content {
-  margin: 225px 100px;
+  margin: 100px 425px; <-- y then x for some reason??? ->>
   display: flex;
   flex-direction: column;
   gap: 96px;
