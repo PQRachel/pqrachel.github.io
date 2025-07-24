@@ -41,7 +41,7 @@ showa_Slides();
 
 function a_showSlides() {
   let i;
-  let a_slides = document.getElementsByClassName("mya_Slides");
+  let a_slides = document.getElementsByClassName("mySlides");
   for (i = 0; i < a_slides.length; i++) {
     a_slides[i].style.display = "none";  
   }
