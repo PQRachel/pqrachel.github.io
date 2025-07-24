@@ -5,30 +5,30 @@ if (document.getElementById('my-work-link')) {
 }
 
 /* Slide show - Start */
-var images = document.getElementById("image-container").children;
-var index = 0;
+const fadeImages = (elContainer) => {
 
-function fadeImages() {
-  var nextIndex = (index + 1) % images.length;
-  var currentImage = images[index];
-  var nextImage = images[nextIndex];
-
-  currentImage.style.opacity = 1;
-
-  var opacity = 0;
-  var interval = setInterval(function() {
-    opacity += 0.05;
-    nextImage.style.opacity = opacity;
-    currentImage.style.opacity = 1 - opacity;
-    if (opacity >= 1) {
-      clearInterval(interval);
-      currentImage.style.display = "none";
-      nextImage.style.display = "block";
-      index = nextIndex;
-      setTimeout(fadeImages, 5000);
-    }
-  }, 50);
+  const duration = 3000;
+  const elsSlides = elContainer.children;
+  const tot = elsSlides.length;
+  let idx = 0;
+  let itv = null;
+  
+  const hide = () => elsSlides[idx].classList.remove("is-active");
+  const show = () => elsSlides[idx].classList.add("is-active"); 
+  const anim = () => {
+    hide();
+    idx = (idx + 1) % tot;
+    show();
+  };
+  const play = () => itv = setInterval(anim, duration);
+  const stop = () => clearInterval(itv);
+  
+  // Start!
+  elContainer.addEventListener("pointerenter", stop);
+  show();
+  play();
 }
 
-fadeImages();
+// Init!
+document.querySelectorAll(".image-container").forEach(fadeImages);
 /* Slide show - END */
