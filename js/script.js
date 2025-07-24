@@ -4,31 +4,32 @@ if (document.getElementById('my-work-link')) {
   })
 }
 
-/* Slide show - Start */
-const fadeImages = (elContainer) => {
+/* Image Carousel */
+let slideIndex = 1;
+showSlides(slideIndex);
 
-  const duration = 3000;
-  const elsSlides = elContainer.children;
-  const tot = elsSlides.length;
-  let idx = 0;
-  let itv = null;
-  
-  const hide = () => elsSlides[idx].classList.remove("is-active");
-  const show = () => elsSlides[idx].classList.add("is-active"); 
-  const anim = () => {
-    hide();
-    idx = (idx + 1) % tot;
-    show();
-  };
-  const play = () => itv = setInterval(anim, duration);
-  const stop = () => clearInterval(itv);
-  
-  // Start!
-  elContainer.addEventListener("pointerenter", stop);
-  show();
-  play();
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
 
-// Init!
-document.querySelectorAll(".image-container").forEach(fadeImages);
-/* Slide show - END */
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
