@@ -198,6 +198,13 @@ body {
   margin: auto;
 }
 
+/* Mini Slideshow container */
+.minislideshow-container {
+  max-width: 400px;
+  position: relative;
+  margin: auto;
+}
+
 /* Hide the images by default */
 .mySlides {
   display: none;
