@@ -36,17 +36,17 @@ function showSlides(n) {
 
 
 /* Image Carousel but Automagical */
-let a_slideIndex = 0;
-showa_Slides();
+let aslideIndex = 0;
+showaSlides();
 
-function a_showSlides() {
+function ashowSlides() {
   let i;
-  let a_slides = 15;
-  for (i = 0; i < a_slides.length; i++) {
-    a_slides[i].style.display = "none";  
+  let aslides = 15;
+  for (i = 0; i < aslides.length; i++) {
+    aslides[i].style.display = "none";  
   }
-  a_slideIndex++;
-  if (a_slideIndex > a_slides.length) {a_slideIndex = 1}    
-  a_slides[a_slideIndex-1].style.display = "block";  
-  setTimeout(a_showSlides, 5000); // Change image every 5 seconds
+  aslideIndex++;
+  if (aslideIndex > aslides.length) {aslideIndex = 1}    
+  aslides[aslideIndex-1].style.display = "block";  
+  setTimeout(ashowSlides, 3000); // Change image every 3 seconds
 }
