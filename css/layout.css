@@ -210,11 +210,6 @@ body {
   display: none;
 }
 
-/* Hide the images by default */
-.mya-Slides {
-  display: none;
-}
-
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
