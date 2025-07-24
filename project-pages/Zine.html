@@ -2,6 +2,97 @@
 <html lang="en">
 <style>
 body { background-color: #f2f9fa; }
+
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
 </style>
 	<head>
 	<meta charset="utf-8">
@@ -10,11 +101,11 @@ body { background-color: #f2f9fa; }
     <meta name="description" content="Blanksford Prologue in a Zine format.">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<link rel="stylesheet" href="../css/layout.css">
+	<link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/typography.css">
     <link rel="stylesheet" href="../css/utilities.css">
 
-		<script defer src="../js/script.js"></script>
+	<script defer src="../js/script.js"></script>
 	</head>
 	<body>
     <!-- NAVBAR -->
@@ -34,15 +125,99 @@ body { background-color: #f2f9fa; }
       <div id="project-header">
         <div class="main-title">Blanksford Prologue Zine</div>
         <div class="body-text">Lorem.</div>
-        <image class="project-header-image" src="../assets/images/Zine pg1.png">
       </div>
+
+      <!-- SLIDESHOW -->
+	<div class="slideshow-container">
+
+	<div class="mySlides fade">
+  	<div class="numbertext">1 / 8</div>
+  	<img src="../assets/images/Zine pg1.png style="width:100%">
+ 	 <div class="text">Front Cover</div>
+	</div>
+	<div class="mySlides fade">
+  	<div class="numbertext">2 / 8</div>
+  	<img src="../assets/images/Zine pg2.png style="width:100%">
+ 	 <div class="text">pg 1</div>
+	</div>
+	<div class="mySlides fade">
+  	<div class="numbertext">3 / 8</div>
+  	<img src="../assets/images/Zine pg3.png style="width:100%">
+ 	 <div class="text">pg 2</div>
+	</div>
+	<div class="mySlides fade">
+  	<div class="numbertext">4 / 8</div>
+  	<img src="../assets/images/Zine pg4.png style="width:100%">
+ 	 <div class="text">pg 3</div>
+	</div>
+	<div class="mySlides fade">
+  	<div class="numbertext">5 / 8</div>
+  	<img src="../assets/images/Zine pg5.png style="width:100%">
+ 	 <div class="text">pg 4</div>
+	</div>
+	<div class="mySlides fade">
+  	<div class="numbertext">6 / 8</div>
+  	<img src="../assets/images/Zine pg6.png style="width:100%">
+ 	 <div class="text">pg 5</div>
+	</div>
+	<div class="mySlides fade">
+  	<div class="numbertext">7 / 8</div>
+  	<img src="../assets/images/Zine pg7.png style="width:100%">
+ 	 <div class="text">pg 6</div>
+	</div>
+	<div class="mySlides fade">
+  	<div class="numbertext">8 / 8</div>
+  	<img src="../assets/images/Zine pg8.png style="width:100%">
+ 	 <div class="text">Back Cover</div>
+	</div>
+		
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+	</div>
 
       <!-- PROJECT DETAILS -->
       <div id="project-details">
         <div class="subheader-text">Project Details / Background</div>
         <div class="project-details-content">
           <div class="body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique risus nec feugiat in fermentum. Sed id semper risus in hendrerit gravida. Placerat duis ultricies lacus sed. Id neque aliquam vestibulum morbi blandit cursus risus. Elit pellentesque habitant morbi tristique senectus et netus et. Elementum tempus egestas sed sed risus pretium quam. Nibh ipsum consequat nisl vel pretium lectus quam id leo. Vitae congue mauris rhoncus aenean vel elit.</div>
-          <div class="body-text">Vitae justo eget magna fermentum. Imperdiet nulla malesuada pellentesque elit eget gravida. Aliquet nec ullamcorper sit amet. Aliquet sagittis id consectetur purus. Ac tortor dignissim convallis aenean. Enim neque volutpat ac tincidunt vitae. Lobortis feugiat vivamus at augue. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Viverra orci sagittis eu volutpat. Massa tincidunt nunc pulvinar sapien et ligula. Donec enim diam vulputate ut.</div>
         </div>
       </div>
 
