@@ -172,6 +172,19 @@ body {
     }
 
 
+    /* Image Carousels */
+
+  #image-container img {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  #image-container imgfirst-child {
+    opacity: 1;
+  }
+
+
 /* Extra Extra large devices (large laptops and desktops, 1200px and below) */
 @media only screen and (max-width: 1600px) {
   #main-content {
