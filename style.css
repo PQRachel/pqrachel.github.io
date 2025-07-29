@@ -70,7 +70,7 @@ img.preview-pic {
     transition: transform 200ms ease-in-out;
 }
 img.preview-pic:hover {
-    transform: scale(2.5);
+    transform: scale(2);
     position: relative;
     z-index: 1;
 }
